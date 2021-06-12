@@ -230,7 +230,7 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
     @return 0;
   }
   @if $divisor == 0 {
-    @error 'Cannot divide by 0';
+    @error "Cannot divide by 0";
   }
   @if $divisor == 1 {
     @return $dividend;
@@ -240,7 +240,7 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
     $remainder: $remainder - $divisor;
   }
   @if $remainder > 0 and $precision > 0 {
-    $remainder: divide($remainder * 10, $divisor, $precision - 1) * 0.1;
+    $remainder: divide($remainder * 10, $divisor, $precision - 1) * .1;
   }
   @return ($quotient + $remainder) * $sign;
 }
